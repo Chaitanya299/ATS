@@ -61,7 +61,7 @@ with st.sidebar:
     
 
 
-st.title("Smart Application Tracking System")
+st.title("Smart Application Tracking System") 
 st.text("Improve Your Resume ATS")
 jd=st.text_area("Paste the Job Description")
 uploaded_file=st.file_uploader("Upload Your Resume",type="pdf",help="Please uplaod the pdf")
