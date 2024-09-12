@@ -6,8 +6,7 @@ import PyPDF2 as pdf
 from dotenv import load_dotenv
 import json
 
-load_dotenv() ## load all our environment variables
-
+load_dotenv() 
 genai.configure(api_key=os.getenv("AIzaSyBUN2l7sgPUb8rN8pmO8JjKXwsoLIqO9KUst"))
 
 def get_gemini_repsonse(input):
@@ -37,35 +36,45 @@ resume:{text}
 description:{jd}
 
 I want the response as per below structure
-{{"JD Match": "%", "MissingKeywords": [], "Profile Summary": ""}}
+{{"JD Match": "%", "MissingKeywords": [], "Profile Summary": "", "areas to focus":""}}
 """
 
 ## streamlit app
 
 with st.sidebar:
-    st.title("Smart ATS for Resumes")
+    st.title("Updated ATS for screening resume")
     st.subheader("About")
-    st.write("This sophisticated ATS project, developed with Gemini Pro and Streamlit, seamlessly incorporates advanced features including resume match percentage, keyword analysis to identify missing criteria, and the generation of comprehensive profile summaries, enhancing the efficiency and precision of the candidate evaluation process for discerning talent acquisition professionals.")
+    st.write("Welcome to the Gemini Pro Applicant Tracking System (ATS)! This system is developed using the powerful Gemini Pro model to streamline the hiring process by analyzing job descriptions and resumes. It provides valuable insights such as job description match, missing keywords, and profile summary.")
     
     st.markdown("""
     - [Streamlit](https://streamlit.io/)
     - [Gemini Pro](https://deepmind.google/technologies/gemini/#introduction)
     - [makersuit API Key](https://makersuite.google.com/)
-    - [Github](https://github.com/praj2408/End-To-End-Resume-ATS-Tracking-LLM-Project-With-Google-Gemini-Pro) Repository
                 
     """)
     
     add_vertical_space(5)
-    st.write("Made with ❤ by chaitu.")
+    st.write("By~chaitu.")
     
     
 
 
 st.title("Smart Application Tracking System") 
 st.text("Improve Your Resume ATS")
-jd=st.text_area("Paste the Job Description")
-uploaded_file=st.file_uploader("Upload Your Resume",type="pdf",help="Please uplaod the pdf")
 
+col1, col2 = st.columns(2, gap="medium")
+
+
+with col1:
+    st.write("") 
+    st.text_area("Paste the Job Description", height=300)  
+    st.write("") 
+
+
+with col2:
+    st.write("")  
+    st.file_uploader("Upload Your Resume", type="pdf", help="Please upload the pdf under 200 MB")
+    st.write("")  
 submit = st.button("Submit")
 
 if submit:

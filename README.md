@@ -1,71 +1,54 @@
-# Resume-ATS-Tracking-LLM-Project-With-Google-Gemini-Pro
-## Overview
+#Resume application tracking system using google gemini
+
+##Overview
 Welcome to the Gemini Pro Applicant Tracking System (ATS)! This system is developed using the powerful Gemini Pro model to streamline the hiring process by analyzing job descriptions and resumes. It provides valuable insights such as job description match, missing keywords, and profile summary.
 
-## Demo of the project
-https://github.com/praj2408/End-To-End-Resume-ATS-Tracking-LLM-Project-With-Google-Gemini-Pro/assets/70437673/56d043c4-bc02-4c16-bd85-fe2d3d909d8c
+##credits 
+Original project is done by prajwal K.
 
-## Features
-- **Job Description Match:** The system evaluates how well a candidate's resume matches the provided job description, helping recruiters quickly identify suitable candidates.
+##Requirements
+* Python 3.10 (or higher)
+* Gemini Pro model api key (Note: Ensure you have the necessary credentials and permissions to access the Gemini Pro API)
 
-- **Missing Keywords:** It identifies keywords or skills that are missing in the resume but are crucial for the job, enabling recruiters to guide candidates on enhancing their profiles.
+##Description
+This project is built upon streamlit api which is an web application, which acts as the user interface and gemini pro API to screen the applicant as per the job description.
 
-- **Profile Summary:** The system generates a concise profile summary highlighting key strengths and qualifications, facilitating a quick understanding of the candidate's suitability for the position.
+PDF reader - PyPDF2 which is a pdf to text reader which collects the applicants data.
+Gemini pro - LLM project by Google DeepMind helps us score the applicant from a precurated prompt.
 
-## Requirements
-- Python 3.10
-- Gemini Pro model api key (Note: Ensure you have the necessary credentials and permissions to access the Gemini Pro API)
+##App functionality
 
-## Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/praj2408/End-To-End-Resume-ATS-Tracking-LLM-Project-With-Google-Gemini-Pro/
-```
+##Resume Analysis
+* Read in the resume text and extract relevant information such as skills, experience, and education
+* Tokenize the text and remove stop words
+* Calculate the frequency of each word and phrase
 
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+###Job Description Analysis
+* Read in the job description text and extract relevant information such as required skills, experience, and qualifications
+* Tokenize the text and remove stop words
+* Calculate the frequency of each word and phrase
 
-3. Set up Gemini Pro API credentials:
- - Obtain API credentials from the makersuit platform.
+###Match Percentage Calculation
+* Compare the frequency of words and phrases in the resume and job description
+* Calculate a match percentage based on the similarity between the two
 
- - Create a file named .env in the project root directory.
+###Missing Keywords Identification
+* Identify keywords in the job description that are not present in the resume
+* Return a list of missing keywords
 
- - Add the following lines to .env:
-   ```bash
-   GOOGLE_API_KEY= "your_api_key"
-   ```
+###Profile Summary Generation
+* Use the extracted information from the resume to generate a concise profile summary
 
-## Usage
+###Areas to Focus On
+* Identify areas where the candidate's skills and experience do not align with the job requirements
+* Return a list of areas to focus on for improvement
+
+##Usage
+
 1. Run the application:
-```bash
 streamlit run app.py
-```
-2. Access the application through your web browser at http://localhost:5000.
 
+2. Access the application through your web browser at http://localhost:5000.
 3. Input the job description and candidate's resume in the provided fields.
-
 4. Click the "Submit" button to initiate the analysis.
-
 5. Review the results, including the job description match, missing keywords, and profile summary.
-
-
-## Contributing
-If you would like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and submit a pull request.
-
-
-## License
-This project is licensed under the MIT License.
-
-## Contact
-If you have any questions or issues, feel free to reach out to the maintainers:
-
-Maintainer: Prajwal Krishna
-Email: prajwalgbdr03@gmail.com
-
-Happy recruiting with Gemini Pro ATS!
